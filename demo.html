@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"/>
+    <title>lz-Date的demo</title>
+    <link rel="stylesheet" href="lz-date.ui.css"/>
+    <script src="../zepto.min.js"></script>
+    <script src="lz-date.js"></script>
+	
+	<style type="text/css">
+		/* 你可以重写包裹日历的宽和位置 */
+		.lz-date{
+			width:80%;
+			margin:0 auto;
+			margin-top:50px;
+		}
+		
+	</style>
+	
+</head>
+<body>
+	<!-- 当有多个时，只能第一个。。。 这有点不科学，有空的人帮我改改吧 -->
+    <div class="lz-date">
+
+    </div>
+
+</body>
+</html>
+
+<script>
+	var handle = $(".lz-date").lzDate({
+		//需要标记的日期
+		marks:[{
+			markDate:'20141215',
+			markType:'input',
+			markText:'+2'
+		},{
+			markDate:'20141219',
+			markType:'output',
+			markText:'+1'
+		},{
+			markDate:'20141211',
+			markType:'input',
+			markText:'+8'
+		}],
+		//翻页之前清除标记日期
+		clearMarksBeforeTurnPage:false,
+		//翻页之后的回调
+        turnPageEndCallBack:function(year,month){
+            console.log('翻页了',year,month);
+        }
+	});
+
+</script>
